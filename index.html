@@ -31,27 +31,18 @@
     }
 
     .name {
+      width: 100%;
       margin: 2rem 0;
       padding: 1.25rem;
       border: 1px solid color-mix(in srgb, canvastext 25%, transparent);
       border-radius: 0.75rem;
+      background: transparent;
+      color: inherit;
       font: 600 clamp(1.5rem, 6vw, 3rem) ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      text-align: center;
       overflow-wrap: anywhere;
-    }
-
-    .actions {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    button {
-      padding: 0.7rem 1rem;
-      border: 1px solid color-mix(in srgb, canvastext 25%, transparent);
-      border-radius: 0.5rem;
-      font: inherit;
       cursor: pointer;
+      appearance: none;
     }
 
     footer {
@@ -72,14 +63,9 @@
 <body>
   <main>
     <h1>Random Name Generator</h1>
-    <p>Generates names in <code>adjective_surname</code> format.</p>
+    <p>Click the name to generate and copy it.</p>
 
-    <div id="name" class="name" aria-live="polite"></div>
-
-    <div class="actions">
-      <button id="generate" type="button">Generate</button>
-      <button id="copy" type="button">Copy</button>
-    </div>
+    <button id="name" class="name" type="button" aria-live="polite"></button>
 
     <footer>
       <div>

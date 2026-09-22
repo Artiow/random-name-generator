@@ -15,22 +15,21 @@ export function generateName() {
 }
 
 const nameElement = document.querySelector("#name");
-const generateButton = document.querySelector("#generate");
-const copyButton = document.querySelector("#copy");
 
 function renderName() {
-  nameElement.textContent = generateName();
+  const name = generateName();
+  nameElement.textContent = name;
+  return name;
 }
 
-generateButton.addEventListener("click", renderName);
+nameElement.addEventListener("click", async () => {
+  const name = renderName();
 
-copyButton.addEventListener("click", async () => {
-  await navigator.clipboard.writeText(nameElement.textContent);
-  const originalText = copyButton.textContent;
-  copyButton.textContent = "Copied";
-  setTimeout(() => {
-    copyButton.textContent = originalText;
-  }, 1000);
+  try {
+    await navigator.clipboard.writeText(name);
+  } catch (error) {
+    console.error("Failed to copy name to clipboard:", error);
+  }
 });
 
 renderName();
