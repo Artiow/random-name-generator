@@ -22,7 +22,7 @@
     }
 
     main {
-      width: min(90vw, 720px);
+      width: 90vw;
       text-align: center;
     }
 
@@ -31,7 +31,10 @@
     }
 
     .name {
-      width: 100%;
+      width: max-content;
+      min-width: min(calc(19ch + 2.5rem), 100%);
+      max-width: 100%;
+      box-sizing: border-box;
       margin: 2rem 0;
       padding: 1.25rem;
       border: 1px solid color-mix(in srgb, canvastext 25%, transparent);
