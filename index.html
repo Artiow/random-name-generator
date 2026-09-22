@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Generate random adjective_surname names from the Moby name lists.">
+  <title>Random Name Generator</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: canvas;
+      color: canvastext;
+    }
+
+    main {
+      width: min(90vw, 720px);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .name {
+      margin: 2rem 0;
+      padding: 1.25rem;
+      border: 1px solid color-mix(in srgb, canvastext 25%, transparent);
+      border-radius: 0.75rem;
+      font: 600 clamp(1.5rem, 6vw, 3rem) ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 0.7rem 1rem;
+      border: 1px solid color-mix(in srgb, canvastext 25%, transparent);
+      border-radius: 0.5rem;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    a {
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Random Name Generator</h1>
+    <p>Generates names in <code>adjective_surname</code> format.</p>
+
+    <div id="name" class="name" aria-live="polite"></div>
+
+    <div class="actions">
+      <button id="generate" type="button">Generate</button>
+      <button id="copy" type="button">Copy</button>
+    </div>
+
+    <footer>
+      Name lists adapted from the
+      <a href="https://github.com/moby/moby/blob/624b3cfbe8dc2abfa7f1c44298b4dc184010764f/pkg/namesgenerator/names-generator.go">Moby Project</a>.
+    </footer>
+  </main>
+
+  <script type="module" src="./generator.js"></script>
+</body>
+</html>
