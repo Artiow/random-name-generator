@@ -1,4 +1,4 @@
-# random-name-generator
+# Random Name Generator
 
 A tiny static random-name generator for GitHub Pages.
 
